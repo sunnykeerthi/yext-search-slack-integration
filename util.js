@@ -9,7 +9,13 @@ module.exports.constructHeader = (data) => {
 };
 module.exports.constructBody = (data) => {
   let bodyArray = [];
-  (data.description || data.richTextDescription || data.body || data.c_body)
+  (
+    data.description ||
+    data.richTextDescription ||
+    data.body ||
+    data.c_body ||
+    data.answer
+  )
     .match(/[^\s].{1,2999}((?=\s|$)|(?<=[.,]))/g)
     .forEach((item) => {
       bodyArray.push({
@@ -112,15 +118,28 @@ module.exports.constructVideo = (data) => {
 
 module.exports.constructMap = (data) => {
   return {
-    type: "image",
-    title: {
-      type: "plain_text",
-      text: data.name || data.title,
-      emoji: true,
+    type: "section",
+    text: {
+      type: "mrkdwn",
+      text: `*Address:*\n ${data.address.line1}, \n ${data.address.city} \n ${data.address.region}, ${data.address.postalCode}`,
     },
-    image_url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/geojson(%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B${data.geocodedCoordinate.longitude}%2C${data.geocodedCoordinate.latitude}%5D%7D)/${data.geocodedCoordinate.longitude},${data.geocodedCoordinate.latitude},17,0/400x300?access_token=pk.eyJ1Ijoic3VubnlrZWVydGhpIiwiYSI6ImNsNWh5ZGt3czAyejUzY3A3Y3pvZ2E0bTgifQ.TNHfh1HL0LwTzLxs2TOaBQ`,
-    alt_text: "marg",
+    accessory: {
+      type: "image",
+      image_url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/geojson(%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B${data.geocodedCoordinate.longitude}%2C${data.geocodedCoordinate.latitude}%5D%7D)/${data.geocodedCoordinate.longitude},${data.geocodedCoordinate.latitude},17,0/400x300?access_token=pk.eyJ1Ijoic3VubnlrZWVydGhpIiwiYSI6ImNsNWh5ZGt3czAyejUzY3A3Y3pvZ2E0bTgifQ.TNHfh1HL0LwTzLxs2TOaBQ`,
+      alt_text: "alt text for image",
+    },
   };
+
+  // return {
+  //   type: "image",
+  //   title: {
+  //     type: "plain_text",
+  //     text: data.name || data.title,
+  //     emoji: true,
+  //   },
+  //   image_url: ,
+  //   alt_text: "marg",
+  // };
 };
 
 module.exports.constructLocCtas = (data) => {

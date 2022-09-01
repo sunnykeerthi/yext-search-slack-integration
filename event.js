@@ -4,11 +4,9 @@ module.exports.event = (data) => {
   let blockBuilder = {};
   let blocks = [];
   /**Header or title */
-  let header = constructHeader(data);
-  blocks.push(header);
+  blocks.push(constructHeader(data));
   /** Body || Description || RTD || c_body in current sb */
-  let bdy = constructBody(data);
-  bdy.forEach((item) => blocks.push(item));
+  constructBody(data).forEach((item) => blocks.push(item));
   // blocks.push(bdy);
   /** Add a divider for CTAs */
   let divider = {
@@ -50,7 +48,6 @@ module.exports.event = (data) => {
   }
 
   blockBuilder.blocks = blocks;
-  console.log(JSON.stringify(blockBuilder));
   return blockBuilder;
 };
 

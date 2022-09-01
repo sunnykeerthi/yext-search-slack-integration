@@ -3,11 +3,9 @@ module.exports.location = (data) => {
   let blockBuilder = {};
   let blocks = [];
   /**Header or title */
-  let header = constructHeader(data);
-  blocks.push(header);
+  blocks.push(constructHeader(data));
   /** Body || Description || RTD || c_body in current sb */
-  let mapBody = constructMap(data);
-  blocks.push(mapBody);
+  blocks.push(constructMap(data));
   /** Add a divider for CTAs */
   let divider = {
     type: "section",
@@ -20,7 +18,6 @@ module.exports.location = (data) => {
   blocks.push(divider);
   blocks.push(constructLocCtas(data));
   blockBuilder.blocks = blocks;
-  console.log(blocks);
 
   return blockBuilder;
 };

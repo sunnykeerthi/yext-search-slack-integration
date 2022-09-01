@@ -1,6 +1,5 @@
 const { provideCore } = require("@yext/answers-core");
-const { ce_benefit } = require("./ce_benefit");
-const { ce_document } = require("./ce_document");
+const { other_entities } = require("./other_entities");
 const { event } = require("./event");
 const { ce_video } = require("./ce_videos");
 const { location } = require("./location");
@@ -27,17 +26,15 @@ const core = provideCore({
   },
 });
 
-const getSearchResult = async (queryString) => {
+module.exports.getSearchResult = async (queryString) => {
   const result = await core.universalSearch({
     query: queryString.text,
   });
   var answerJson = result.verticalResults[0].results[0].rawData;
   const entity_type = answerJson.type;
-  if (entity_type === "ce_benefit") return ce_benefit(answerJson);
-  else if (entity_type === "ce_document") return ce_document(answerJson);
-  else if (entity_type === "event") return event(answerJson);
+  console.log(entity_type);
+  if (entity_type === "event") return event(answerJson);
   else if (entity_type === "ce_videos") return ce_video(answerJson);
   else if (entity_type === "location") return location(answerJson);
+  else return other_entities(answerJson);
 };
-
-module.exports.getSearchResult = getSearchResult;

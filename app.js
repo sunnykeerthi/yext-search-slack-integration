@@ -1,6 +1,6 @@
 const { App } = require("@slack/bolt");
 require("dotenv").config();
-const getResults = require("./searchOperations");
+const { getSearchResult } = require("./searchOperations");
 // Initializes your app with your bot token and signing secret with bolt mode
 
 const app = new App({
@@ -12,9 +12,12 @@ const app = new App({
 
 // Listens to incoming messages that contain "hello"
 app.message(/^(.*)$/, async ({ message, say }) => {
-  let res = await getResults.getSearchResult(message);
+  let res = await getSearchResult(message);
   await say(res);
 });
+
+app.action(/^(.*)$/, ({ ack }) => ack());
+
 (async () => {
   await app.start(process.env.PORT || 3000);
   console.log("⚡️ Bolt app is running!");

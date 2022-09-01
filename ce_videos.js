@@ -3,8 +3,7 @@ const { constructVideo, constructCTAs } = require("./util");
 module.exports.ce_video = (data) => {
   let blockBuilder = {};
   let blocks = [];
-  let videoBlock = constructVideo(data);
-  blocks.push(videoBlock);
+  blocks.push(constructVideo(data));
   let divider = {
     type: "section",
     text: {
