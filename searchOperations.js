@@ -1,6 +1,7 @@
 const { provideCore } = require("@yext/answers-core");
 const { other_entities } = require("./other_entities");
 const { event } = require("./event");
+const { people } = require("./people");
 const { ce_video } = require("./ce_videos");
 const { location } = require("./location");
 require("dotenv").config();
@@ -32,9 +33,9 @@ module.exports.getSearchResult = async (queryString) => {
   });
   var answerJson = result.verticalResults[0].results[0].rawData;
   const entity_type = answerJson.type;
-  console.log(entity_type);
   if (entity_type === "event") return event(answerJson);
   else if (entity_type === "ce_videos") return ce_video(answerJson);
   else if (entity_type === "location") return location(answerJson);
+  else if (entity_type === "ce_expert") return people(answerJson);
   else return other_entities(answerJson);
 };

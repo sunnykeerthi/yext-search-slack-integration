@@ -9,23 +9,21 @@ module.exports.constructHeader = (data) => {
 };
 module.exports.constructBody = (data) => {
   let bodyArray = [];
-  (
+  data =
     data.description ||
     data.richTextDescription ||
     data.body ||
     data.c_body ||
-    data.answer
-  )
-    .match(/[^\s].{1,2999}((?=\s|$)|(?<=[.,]))/g)
-    .forEach((item) => {
-      bodyArray.push({
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: item,
-        },
-      });
+    data.answer;
+  data.match(/[^\s].{1,2999}((?=\s|$)|(?<=[.,]))/g).forEach((item) => {
+    bodyArray.push({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: formatItem(item),
+      },
     });
+  });
   return bodyArray;
 };
 module.exports.constructCTAs = (data) => {
@@ -129,17 +127,19 @@ module.exports.constructMap = (data) => {
       alt_text: "alt text for image",
     },
   };
+};
 
-  // return {
-  //   type: "image",
-  //   title: {
-  //     type: "plain_text",
-  //     text: data.name || data.title,
-  //     emoji: true,
-  //   },
-  //   image_url: ,
-  //   alt_text: "marg",
-  // };
+module.exports.addImage = (data) => {
+  return {
+    type: "image",
+    title: {
+      type: "plain_text",
+      text: data.name || data.title,
+      emoji: true,
+    },
+    image_url: data.photoGallery[0].image.url,
+    alt_text: "marg",
+  };
 };
 
 module.exports.constructLocCtas = (data) => {
@@ -168,4 +168,31 @@ module.exports.constructLocCtas = (data) => {
       },
     ],
   };
+};
+
+const formatItem = (x) => {
+  const re1 = new RegExp(/([*]{1})(.*)([*]{1})/g);
+  const re2 = new RegExp(/([*]{2})(.*)([*]{2})/g);
+  const re3 = new RegExp(/([*]{3})(.*)([*]{3})/g);
+  const re4 = new RegExp(/([*]{1})(.*)/g);
+  const re5 = new RegExp(/\[([^\]]+)\]\(([^)]+)\)/g);
+  x = x.replaceAll(re3, "(bital)$2(/bital)");
+  x = x.replaceAll(re2, "(bold)$2(/bold)");
+  x = x.replaceAll(re1, "(ital)$2(/ital)");
+  x = x.replaceAll(re4, "(bullet)$2");
+  x = x.replaceAll(re5, "<$2|$1>");
+  x = findAndReplace(x);
+  x = x.replaceAll("\\-", "-");
+  return x;
+};
+
+const findAndReplace = (x) => {
+  x = x.replaceAll("(bital)", "_*");
+  x = x.replaceAll("(/bital)", "*_");
+  x = x.replaceAll("(bold)", "*");
+  x = x.replaceAll("(/bold)", "*");
+  x = x.replaceAll("(ital)", "_");
+  x = x.replaceAll("(/ital)", "_");
+  x = x.replaceAll("(bullet)", "• ");
+  return x;
 };
