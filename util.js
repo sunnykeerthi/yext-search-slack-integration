@@ -1,3 +1,4 @@
+require("dotenv").config();
 module.exports.constructHeader = (data) => {
   return {
     type: "header",
@@ -123,7 +124,7 @@ module.exports.constructMap = (data) => {
     },
     accessory: {
       type: "image",
-      image_url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/geojson(%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B${data.geocodedCoordinate.longitude}%2C${data.geocodedCoordinate.latitude}%5D%7D)/${data.geocodedCoordinate.longitude},${data.geocodedCoordinate.latitude},17,0/400x300?access_token=pk.eyJ1Ijoic3VubnlrZWVydGhpIiwiYSI6ImNsNWh5ZGt3czAyejUzY3A3Y3pvZ2E0bTgifQ.TNHfh1HL0LwTzLxs2TOaBQ`,
+      image_url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/geojson(%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B${data.geocodedCoordinate.longitude}%2C${data.geocodedCoordinate.latitude}%5D%7D)/${data.geocodedCoordinate.longitude},${data.geocodedCoordinate.latitude},17,0/400x300?access_token=${process.env.MAPBOX_KEY}`,
       alt_text: "alt text for image",
     },
   };
