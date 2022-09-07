@@ -34,7 +34,7 @@ Here is my [sandbox](https://sandbox.yext.com/s/3175991/entities2)
 - From experience details page copy _Experience Key_ and _API Key_ and save it in your local (We'll use this later).
 <img width="400" alt="Screenshot 2022-09-07 at 4 19 36 PM" src="https://user-images.githubusercontent.com/17703864/188860889-6f4adfd6-e34d-4ad2-928d-9aa27214e55c.png">
 
-### Test your app
+## Test your app
 
 You can test the bot that you created in 2 ways
 
@@ -67,7 +67,7 @@ Navigate to [heroku page](https://www.heroku.com/) (sign up) and sign in.
 
 - Create a new app by clicking New in top right of the page.
 - Give it a name and select the region(optional) and create
-- You can deploy the code cloned in your locally either by pushing the code to github and linking it in this page or directly to heroku using the heroku CLI. more info (here)[https://devcenter.heroku.com/categories/deployment]
+- You can deploy the code cloned in your locally either by pushing the code to github and linking it in this page or directly to heroku using the heroku CLI. more info [here](https://devcenter.heroku.com/categories/deployment)
 - Once deployed navigate to settings tab and click _Reveal Config Vars_. This is where we will be using the data stored in local. Add the following in key - value format and save it, please be aware that this **is CASE SENSITIVE**
 
 | Key                  | Value                               |
