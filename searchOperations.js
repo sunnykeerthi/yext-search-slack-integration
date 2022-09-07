@@ -5,26 +5,46 @@ const { people } = require("./people");
 const { ce_video } = require("./ce_videos");
 const { location } = require("./location");
 require("dotenv").config();
+
+let endpoints =
+  process.env.EXP_VER.toLowerCase() === "staging"
+    ? {
+        universalSearch:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/query",
+        verticalSearch:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query",
+        questionSubmission:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/createQuestion",
+        status: "https://answersstatus.pagescdn.com",
+        universalAutocomplete:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/autocomplete",
+        verticalAutocomplete:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/autocomplete",
+        filterSearch:
+          "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/filtersearch",
+      }
+    : {
+        universalSearch:
+          "https://liveapi.yext.com/v2/accounts/me/answers/query",
+        verticalSearch:
+          "https://liveapi.yext.com/v2/accounts/me/answers/vertical/query",
+        questionSubmission:
+          "https://liveapi.yext.com/v2/accounts/me/createQuestion",
+        status: "https://answersstatus.pagescdn.com",
+        universalAutocomplete:
+          "https://liveapi.yext.com/v2/accounts/me/answers/autocomplete",
+        verticalAutocomplete:
+          "https://liveapi.yext.com/v2/accounts/me/answers/vertical/autocomplete",
+        filterSearch:
+          "https://liveapi.yext.com/v2/accounts/me/answers/filtersearch",
+      };
+
 const core = provideCore({
   apiKey: process.env.API_KEY,
   experienceKey: process.env.EXP_KEY,
   locale: "en",
   experienceVersion: "STAGING",
-  endpoints: {
-    universalSearch:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/query",
-    verticalSearch:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query",
-    questionSubmission:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/createQuestion",
-    status: "https://answersstatus.pagescdn.com",
-    universalAutocomplete:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/autocomplete",
-    verticalAutocomplete:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/autocomplete",
-    filterSearch:
-      "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/filtersearch",
-  },
+  endpoints: endpoints,
 });
 
 module.exports.getSearchResult = async (queryString) => {

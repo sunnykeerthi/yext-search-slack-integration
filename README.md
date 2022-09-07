@@ -48,11 +48,12 @@ You can test the bot that you created in 2 ways
 - Create a file `.env` and add the following to it. This is **CASE SENSITIVE**
 
 ```SLACK_SIGNING_SECRET = Signing Secret
-SLACK_BOT_TOKEN = Bot User OAuth Token (`xoxb-XXXXX`)
-SLACK_APP_TOKEN = App token (`xapp-XXXX`)
+SLACK_BOT_TOKEN = Bot User OAuth Token (_xoxb-XXXXX_)
+SLACK_APP_TOKEN = App token (_xapp-XXXX_)
 EXP_KEY = Yext Experience Key
 API_KEY = Yext API Key
-MAPBOX_KEY = Map box API key (`pk.XXXXXX`)
+MAPBOX_KEY = Map box API key (_pk.XXXXXX_)
+EXP_VER= Experience version (_STAGING or PRODUCTION_)
 ```
 
 run the app by running the command `node app.js` in terminal
@@ -74,14 +75,15 @@ Navigate to [heroku page](https://www.heroku.com/) (sign up) and sign in.
 - You can deploy the code cloned in your locally either by pushing the code to github and linking it in this page or directly to heroku using the heroku CLI. more info [here](https://devcenter.heroku.com/categories/deployment)
 - Once deployed navigate to settings tab and click _Reveal Config Vars_. This is where we will be using the data stored in local. Add the following in key - value format and save it, please be aware that this **is CASE SENSITIVE**
 
-| Key                  | Value                               |
-| -------------------- | ----------------------------------- |
-| SLACK_SIGNING_SECRET | Signing Secret                      |
-| SLACK_BOT_TOKEN      | Bot User OAuth Token (`xoxb-XXXXX`) |
-| SLACK_APP_TOKEN      | App token (`xapp-XXXX`)             |
-| EXP_KEY              | Yext Experience Key                 |
-| API_KEY              | Yext API Key                        |
-| MAPBOX_KEY           | Map box API key (`pk.XXXXXX`)       |
+| Key                  | Value                                          |
+| -------------------- | ---------------------------------------------- |
+| SLACK_SIGNING_SECRET | Signing Secret                                 |
+| SLACK_BOT_TOKEN      | Bot User OAuth Token (`xoxb-XXXXX`)            |
+| SLACK_APP_TOKEN      | App token (`xapp-XXXX`)                        |
+| EXP_KEY              | Yext Experience Key                            |
+| API_KEY              | Yext API Key                                   |
+| MAPBOX_KEY           | Map box API key (`pk.XXXXXX`)                  |
+| EXP_VER              | Experience Version (`STAGING` or `PRODUCTION`) |
 
 once done, click open app fron top right and copy the URL and save it seperately (should be of format `https://XXXXXXX.herokuapp.com/`).
 <img width="400" alt="Screenshot 2022-09-07 at 4 31 52 PM" src="https://user-images.githubusercontent.com/17703864/188863129-f28177a1-1a17-4d62-9d04-d04a2069fb22.png">
