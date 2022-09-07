@@ -15,15 +15,18 @@ Here is my [sandbox](https://sandbox.yext.com/s/3175991/entities2)
 - Navigate to [Slack API page](https://api.slack.com/), click on create an app and select From scratch.
 - Give an app name (this can be changed later) and select a workspace to deploy it to and click `create app`.
 - In _basic info_, under _App Credentials_, copy _Signing Secret_ and save it in your local (We'll use this later).
+
   <img width="400" alt="Screenshot 2022-09-07 at 4 09 34 PM" src="https://user-images.githubusercontent.com/17703864/188859934-ddb663c8-d3c3-419a-a278-0f05252fe55e.png">
 
 - Under Display Information, we can update the app details.
 - Under App-Level Tokens, Click _Generate Token and Scopes_, give it a name and click add scope and select `connections:write` and click generate. Copy the _App token_ generated and save it in your local (We'll use this later). **Note This will be visible only once.**
+
   <img width="400" alt="Screenshot 2022-09-07 at 4 15 07 PM" src="https://user-images.githubusercontent.com/17703864/188859899-9b06e989-f306-4dd5-93ad-311b8163cd63.png">
 
 - Under features navbar in left, click OAuth and Permissions and add the scopes as shown below. More about [OAuth scopes](https://api.slack.com/scopes).
 - Scroll up and click Install to workspace. This will create OAuth tokens for your workspace.
   Copy _Bot User OAuth Token_ and save it in your local (We'll use this later).
+
   <img width="400" alt="Screenshot 2022-09-07 at 4 12 35 PM" src="https://user-images.githubusercontent.com/17703864/188859921-2c129d75-0031-4862-b1ac-830c2547a687.png">
 
 ### Yext
@@ -31,6 +34,7 @@ Here is my [sandbox](https://sandbox.yext.com/s/3175991/entities2)
 - If you don't have an Yext account, please request by [clicking here](https://www.yext.com/free-trial).
 - With the KG populated and search configured. Navigate to the created search experience under all search experiences in the left pane, or, do a quick search of _yourExperienceName_ by `CMD+k`(mac) or `CTRL+k`(windows).
 - From experience details page copy _Experience Key_ and _API Key_ and save it in your local (We'll use this later).
+
   <img width="400" alt="Screenshot 2022-09-07 at 4 19 36 PM" src="https://user-images.githubusercontent.com/17703864/188860889-6f4adfd6-e34d-4ad2-928d-9aa27214e55c.png">
 
 ### Mapbox
@@ -47,14 +51,15 @@ You can test the bot that you created in 2 ways
 - Do an `npm install`
 - Create a file `.env` and add the following to it. This is **CASE SENSITIVE**
 
-```SLACK_SIGNING_SECRET = Signing Secret
-SLACK_BOT_TOKEN = Bot User OAuth Token (_xoxb-XXXXX_)
-SLACK_APP_TOKEN = App token (_xapp-XXXX_)
+```js
+SLACK_SIGNING_SECRET = Signing Secret
+SLACK_BOT_TOKEN = Bot User OAuth Token //(xoxb-XXXXX)
+SLACK_APP_TOKEN = App token //(xapp-XXXX)
 EXP_KEY = Yext Experience Key
 API_KEY = Yext API Key
-MAPBOX_KEY = Map box API key (_pk.XXXXXX_)
-EXP_VER = Experience version (_STAGING or PRODUCTION_)
-LOCALE = Experience Locale (like _en_)
+MAPBOX_KEY = Map box API key //(pk.XXXXXX)
+EXP_VER = Experience version //(STAGING or PRODUCTION)
+LOCALE = Experience Locale //(like en)
 ```
 
 run the app by running the command `node app.js` in terminal
