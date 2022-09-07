@@ -42,8 +42,8 @@ let endpoints =
 const core = provideCore({
   apiKey: process.env.API_KEY,
   experienceKey: process.env.EXP_KEY,
-  locale: "en",
-  experienceVersion: "STAGING",
+  locale: process.env.LOCALE,
+  experienceVersion: process.env.EXP_VER,
   endpoints: endpoints,
 });
 

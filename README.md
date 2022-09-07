@@ -53,7 +53,8 @@ SLACK_APP_TOKEN = App token (_xapp-XXXX_)
 EXP_KEY = Yext Experience Key
 API_KEY = Yext API Key
 MAPBOX_KEY = Map box API key (_pk.XXXXXX_)
-EXP_VER= Experience version (_STAGING or PRODUCTION_)
+EXP_VER = Experience version (_STAGING or PRODUCTION_)
+LOCALE = Experience Locale (like _en_)
 ```
 
 run the app by running the command `node app.js` in terminal
@@ -84,6 +85,7 @@ Navigate to [heroku page](https://www.heroku.com/) (sign up) and sign in.
 | API_KEY              | Yext API Key                                   |
 | MAPBOX_KEY           | Map box API key (`pk.XXXXXX`)                  |
 | EXP_VER              | Experience Version (`STAGING` or `PRODUCTION`) |
+| LOCALE               | Experience locale (like `en`)                  |
 
 once done, click open app fron top right and copy the URL and save it seperately (should be of format `https://XXXXXXX.herokuapp.com/`).
 <img width="400" alt="Screenshot 2022-09-07 at 4 31 52 PM" src="https://user-images.githubusercontent.com/17703864/188863129-f28177a1-1a17-4d62-9d04-d04a2069fb22.png">
