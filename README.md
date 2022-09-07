@@ -107,6 +107,7 @@ On your slack app page
 | <img width="400" alt="Screenshot 2022-09-07 at 4 23 50 PM" src="https://user-images.githubusercontent.com/17703864/188862048-3359ff90-df44-426f-b22e-55ab9003c46d.png"> | <img width="400" alt="Screenshot 2022-09-07 at 4 23 27 PM" src="https://user-images.githubusercontent.com/17703864/188862059-f5643901-2e2a-49a9-8b65-2b87e06f5340.png"> |
 
 Note: If you don't see an option to enter Requrset URL, socket mode may be enabled. To disable it, In your slack app page, Click _Socket Mode_ from left nav pane and toggle to disable **Enable Socket Mode** and retry the above 2 steps.
+
 <img width="400" alt="Screenshot 2022-09-07 at 4 22 54 PM" src="https://user-images.githubusercontent.com/17703864/188862318-2fde9994-09b7-4755-b20a-e1106a34a7c5.png">
 
 ### Other settings
