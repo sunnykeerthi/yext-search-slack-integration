@@ -1,4 +1,4 @@
-const { provideCore } = require("@yext/answers-core");
+const { provideCore } = require("@yext/search-core");
 const { other_entities } = require("./other_entities");
 const { event } = require("./event");
 const { people } = require("./people");

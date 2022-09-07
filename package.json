@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@slack/bolt": "^3.12.1",
-    "@yext/answers-core": "^1.7.0",
+     "@yext/search-core": "^1.9.0",
     "dotenv": "^16.0.1"
   }
 }
