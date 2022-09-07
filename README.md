@@ -14,7 +14,7 @@ Here is my [sandbox](https://sandbox.yext.com/s/3175991/entities2)
 
 - Navigate to [Slack API page](https://api.slack.com/), click on create an app and select From scratch.
 - Give an app name (this can be changed later) and select a workspace to deploy it to and click create app.
-- In basic info, under App Credentials, copy Signing Secret and save it in your local (We'll use this later).
+- In _basic info_, under _App Credentials_, copy _Signing Secret_ and save it in your local (We'll use this later).
 - Under Display Information, we can update the app details.
 - Under App-Level Tokens, Click _Generate Token and Scopes_, give it a name and click add scope and select `connections:write` and click generate. Copy the App token generated and save it in your local (We'll use this later). **Note This will be visible only once.**
 - Under features navbar in left, click OAuth and Permissions and add the scopes as shown below. More about [OAuth scopes](https://api.slack.com/scopes).
