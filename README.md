@@ -2,7 +2,7 @@
 
 This use case can be(one of the) best solution(s) for workspace. Most of the orgs have slack as a collaboration tool, and, the user can get the answers by asking the question in slack instead of navigating to a website.
 
-We at Demmo engineering team created a slack app(bot) that answers users queries by using the [search-core](https://www.npmjs.com/package/@yext/search-core) sdk.
+We at Demo engineering team created a slack app(bot) that answers users queries by using the [search-core](https://www.npmjs.com/package/@yext/search-core) sdk.
 
 Before we proceed, Clone or download the repo to your local.
 
