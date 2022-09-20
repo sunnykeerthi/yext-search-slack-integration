@@ -8,6 +8,10 @@ Before we proceed, Clone or download the repo to your local.
 
 Here is my [sandbox](https://sandbox.yext.com/s/3175991/entities2)
 
+### High level Architecture diagram
+
+<img width="770" alt="Screenshot 2022-09-20 at 7 22 10 PM" src="https://user-images.githubusercontent.com/17703864/191276338-95170c9f-44b5-435d-a181-3940b44f652c.png">
+
 ## Configuration
 
 ### Slack
